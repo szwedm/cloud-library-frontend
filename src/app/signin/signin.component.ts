@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class SigninComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -27,7 +29,9 @@ export class SigninComponent implements OnInit {
 
     if (val.username && val.password) {
       this.authService.signin(val.username, val.password)
-        .subscribe();
+        .subscribe(() => {
+          this.router.navigateByUrl('/books')
+        });
     }
   }
 

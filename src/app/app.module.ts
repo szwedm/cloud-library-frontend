@@ -18,7 +18,9 @@ import { SigninComponent } from './signin/signin.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([
+      { path: '', component: SigninComponent },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
