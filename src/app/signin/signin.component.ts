@@ -30,7 +30,7 @@ export class SigninComponent implements OnInit {
     if (val.username && val.password) {
       this.authService.signin(val.username, val.password)
         .subscribe(() => {
-          this.router.navigateByUrl('/books')
+          this.router.navigateByUrl('')
         });
     }
   }
