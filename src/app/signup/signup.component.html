@@ -1,0 +1,31 @@
+<h3>Sign Up</h3>
+
+<p>
+	<a routerLink="/signin">Sign In</a>
+</p>
+
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+	
+	<div>
+		<label for="username">Username</label>
+		<input id="username" type="text" formControlName="username">
+	</div>
+
+	<div>
+		<label for="password">Password</label>
+		<input id="password" type="password" formControlName="password">
+	</div>
+
+	<div>
+		<label for="administrator">Administrator</label>
+		<input id="administrator" type="radio" name="role" value="administrator" formControlName="role">
+		<br/>
+		<label for="reader">Reader</label>
+		<input id="reader" type="radio" name="role" value="reader" formControlName="role" checked>
+	</div>
+
+	<button class="button" type="submit">
+		Sign Up
+	</button>
+	
+</form>

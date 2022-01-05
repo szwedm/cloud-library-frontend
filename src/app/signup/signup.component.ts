@@ -4,15 +4,16 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
-export class SigninComponent implements OnInit {
+export class SignupComponent implements OnInit {
 
-  signinForm = this.formBuilder.group({
+  signupForm = this.formBuilder.group({
     username: ['', Validators.required],
-    password: ['', Validators.required]
+    password: ['', Validators.required],
+    role: ['', Validators.required]
   });
   
   constructor(
@@ -24,11 +25,11 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signin() {
-    const val = this.signinForm.value;
+  onSubmit(): void {
+    const val = this.signupForm.value;
 
-    if (val.username && val.password) {
-      this.authService.signin(val.username, val.password)
+    if (val.username && val.password && val.role) {
+      this.authService.signup(val.username, val.password, val.role)
         .subscribe(() => {
           this.router.navigateByUrl('/books')
         });
