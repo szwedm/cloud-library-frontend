@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { TokenStorageService } from '../services/token-storage.service';
 
 @Component({
   selector: 'app-signin',
@@ -14,9 +15,13 @@ export class SigninComponent implements OnInit {
     username: ['', Validators.required],
     password: ['', Validators.required]
   });
+
+  isLoggedIn = false;
+  role: string;
   
   constructor(
     private authService: AuthService,
+    private tokenStorage: TokenStorageService,
     private formBuilder: FormBuilder,
     private router: Router,
   ) { }
