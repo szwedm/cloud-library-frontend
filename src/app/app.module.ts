@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
+import { BookListComponent } from './book-list/book-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    BookListComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +25,8 @@ import { SignupComponent } from './signup/signup.component';
     RouterModule.forRoot([
       { path: '', component: SigninComponent },
       { path: 'signup', component: SignupComponent },
+      { path: 'signin', component: SigninComponent },
+      { path: 'books', component: BookListComponent },
     ])
   ],
   providers: [],
