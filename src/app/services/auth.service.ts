@@ -16,11 +16,11 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  signin(username: string, password: string): Observable<any> {
-    return this.http.post('http://localhost:8080/signin', {username, password}, httpOptions);
+  signin(username: string, password: string): Observable<User> {
+    return this.http.post<User>('http://localhost:8080/signin', {username, password}, httpOptions);
   }
 
-  signup(username: string, password: string, role: string): Observable<any> {
+  signup(username: string, password: string, role: string) {
     return this.http.post('http://localhost:8080/users', {username, password, role}, httpOptions);
   }
 
