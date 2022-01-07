@@ -25,6 +25,7 @@ export class SignupComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.signupForm.controls['role'].setValue("reader");
   }
 
   get f(): { [key: string]: AbstractControl } {

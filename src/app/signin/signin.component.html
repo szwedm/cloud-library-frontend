@@ -1,23 +1,49 @@
-<h3>Sign In</h3>
+<div class="container">
+	<div class="row align-items-center">
+		<div class="col"></div>
+		<div class="col align-self-center">
 
-<p>
-	<a routerLink="/signup">Sign Up</a>
-</p>
+			<h3 class="text-center">Sign In</h3>
 
-<form [formGroup]="signinForm" (ngSubmit)="signin()">
-	
-	<div>
-		<label for="username">Username</label>
-		<input id="username" type="text" formControlName="username">
+			<form [formGroup]="signinForm" (ngSubmit)="signin()">
+		
+				<div>
+					<label for="username">Username</label>
+					<br>
+					<input id="username" type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }">
+					<div *ngIf="submitted && f['username'].errors">
+						<div *ngIf="f['username'].errors['required']">Username is required</div>
+						<div *ngIf="f['username'].errors['minlength']">Username must be at least 5 characters</div>
+						<div *ngIf="f['username'].errors['maxlength']">Username must not exceed 20 characters</div>
+					</div>
+				</div>
+			
+				<div>
+					<label for="password">Password</label>
+					<br>
+					<input id="password" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+					<div *ngIf="submitted && f['password'].errors">
+						<div *ngIf="f['password'].errors['required']">Password is required</div>
+						<div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
+						<div *ngIf="f['password'].errors['maxlength']">Password must not exceed 40 characters</div>
+					</div>
+				</div>
+			
+				<br>
+				<button class="btn btn-primary" type="submit">
+					Sign In
+				</button>
+		
+				<br><br>
+				<p>
+					Don't have an account? Click here to
+					<a routerLink="/signup">Sign Up</a>
+				</p>
+				
+			</form>
+
+		</div>
+		
+		<div class="col"></div>
 	</div>
-
-	<div>
-		<label for="password">Password</label>
-		<input id="password" type="password" formControlName="password">
-	</div>
-
-	<button class="button" type="submit">
-		Sign In
-	</button>
-	
-</form>
+</div>

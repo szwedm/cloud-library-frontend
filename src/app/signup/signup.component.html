@@ -1,45 +1,61 @@
-<h3>Sign Up</h3>
+<div class="container">
+	<div class="row align-items-center">
+		<div class="col"></div>
+		<div class="col align-self-center">
 
-<p>
-	<a routerLink="/signin">Sign In</a>
-</p>
+			<h3 class="text-center">Sign Up</h3>
 
-<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+			<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
 	
-	<div>
-		<label for="username">Username</label>
-		<input id="username" type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }">
-		<div *ngIf="submitted && f['username'].errors">
-			<div *ngIf="f['username'].errors['required']">Username is required</div>
-			<div *ngIf="f['username'].errors['minlength']">Username must be at least 5 characters</div>
-			<div *ngIf="f['username'].errors['maxlength']">Username must not exceed 20 characters</div>
+				<div>
+					<label for="username">Username</label>
+					<br>
+					<input id="username" type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }">
+					<div *ngIf="submitted && f['username'].errors">
+						<div *ngIf="f['username'].errors['required']">Username is required</div>
+						<div *ngIf="f['username'].errors['minlength']">Username must be at least 5 characters</div>
+						<div *ngIf="f['username'].errors['maxlength']">Username must not exceed 20 characters</div>
+					</div>
+				</div>
+			
+				<div>
+					<label for="password">Password</label>
+					<br>
+					<input id="password" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+					<div *ngIf="submitted && f['password'].errors">
+						<div *ngIf="f['password'].errors['required']">Password is required</div>
+						<div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
+						<div *ngIf="f['password'].errors['maxlength']">Password must not exceed 40 characters</div>
+					</div>
+				</div>
+			
+				<div>
+					<input id="administrator" type="radio" name="role" value="administrator" formControlName="role">&nbsp;
+					<label for="administrator">Administrator</label>
+					<br>
+					<input id="reader" type="radio" name="role" value="reader" formControlName="role" checked>&nbsp;
+					<label for="reader">Reader</label>
+				</div>
+
+				<br>
+				<button class="btn btn-primary" type="submit">
+					Sign Up
+				</button>
+				&nbsp;
+				<button type="button" class="btn btn-danger" (click)="onReset()">
+					Reset
+				</button>
+				
+				<br><br>
+				<p>
+					Already have an account? Click here to
+					<a routerLink="/signin">Sign In</a>
+				</p>
+
+			</form>
+
 		</div>
-	</div>
 
-	<div>
-		<label for="password">Password</label>
-		<input id="password" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
-		<div *ngIf="submitted && f['password'].errors">
-			<div *ngIf="f['password'].errors['required']">Password is required</div>
-			<div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
-			<div *ngIf="f['password'].errors['maxlength']">Password must not exceed 40 characters</div>
-		</div>
+		<div class="col"></div>
 	</div>
-
-	<div>
-		<label for="administrator">Administrator</label>
-		<input id="administrator" type="radio" name="role" value="administrator" formControlName="role">
-		<br/>
-		<label for="reader">Reader</label>
-		<input id="reader" type="radio" name="role" value="reader" formControlName="role" checked>
-	</div>
-
-	<button class="button" type="submit">
-		Sign Up
-	</button>
-	&nbsp;
-	<button type="button" (click)="onReset()">
-		Reset
-	</button>
-	
-</form>
+</div>
