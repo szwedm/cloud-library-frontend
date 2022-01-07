@@ -14,6 +14,9 @@
 				<th scope="row">{{ book.title }}</th>
 				<td>{{ book.author }}</td>
 				<td>{{ book.subject }}</td>
+				<td>
+					<button (click)="readBook(book.id)">Read</button>
+				</td>
 			</tr>
 		</div>
 	</tbody>

@@ -24,4 +24,13 @@ export class BookListComponent implements OnInit {
       });
   }
 
+  readBook(id: string) {
+    this.bookService.getBookByID(id)
+      .subscribe((data: Blob) => {
+        let bookFile = new Blob([data], { type: 'application/pdf' })
+        let bookFileURL = URL.createObjectURL(bookFile);
+        window.open(bookFileURL);
+      })
+  }
+
 }
