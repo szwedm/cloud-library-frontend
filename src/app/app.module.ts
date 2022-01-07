@@ -10,13 +10,15 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthInterceptor } from './helpers/auth.interceptor';
 import { BookListComponent } from './book-list/book-list.component';
+import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     SignupComponent,
-    BookListComponent
+    BookListComponent,
+    TopBarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+	<div class="container-fluid">
+		<span class="navbar-brand mb-0 h1">Cloud Library</span>
+		<div *ngIf="isLoggedIn" class="navbar-collapse">
+			<div class="navbar-nav">
+				<button *ngIf="isReader" type="button" class="btn btn-primary" (click)="onBooks()">Books</button>
+				<button *ngIf="isAdministrator" type="button" class="btn btn-primary" (click)="onUsers()">Users</button>
+				<button type="button" class="btn btn-primary" (click)="onSignout()">Sign out</button>
+			</div>
+		</div> 
+	</div>
+	
+</nav>
