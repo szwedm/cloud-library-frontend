@@ -1,25 +1,35 @@
 <app-top-bar></app-top-bar>
 
-<h2>Books</h2>
+<div class="container">
+	<h3 class="text-center m-2">Books</h3>
 
-<table>
-	<thead>
-		<tr>
-			<th scope="col">Title</th>
-			<th scope="col">Author</th>
-			<th scope="col">Subject</th>
-		</tr>
-	</thead>
-	<tbody>
-		<div *ngFor="let book of books">
-			<tr>
-				<th scope="row">{{ book.title }}</th>
-				<td>{{ book.author }}</td>
-				<td>{{ book.subject }}</td>
-				<td>
-					<button (click)="readBook(book.id)">Read</button>
-				</td>
-			</tr>
-		</div>
-	</tbody>
-</table>
+	<div class="text-center">
+		<button *ngIf="isAdministrator" class="btn btn-success btn-sm my-1" type="button" (click)="onEdit()">Add book</button>
+	</div>
+	
+	<div class="row">
+		<table class="table-primary table-striped table-bordered">
+			<thead>
+				<tr>
+					<th scope="col">Title</th>
+					<th scope="col">Author</th>
+					<th scope="col">Subject</th>
+					<th scope="col">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let book of books">
+					<th scope="row">{{ book.title }}</th>
+					<td>{{ book.author }}</td>
+					<td>{{ book.subject }}</td>
+					<td>
+						<button class="btn btn-primary btn-sm m-1"  type="button" (click)="readBook(book.id)">Read</button>
+						<button *ngIf="isAdministrator" class="btn btn-warning btn-sm m-1" type="button" (click)="onEdit()">Edit</button>
+						<button *ngIf="isAdministrator" class="btn btn-danger btn-sm m-1" type="button" (click)="onDelete()">Delete</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+</div>

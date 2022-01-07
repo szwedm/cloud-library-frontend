@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../models/book';
 import { BookService } from '../services/book.service';
+import { TokenStorageService } from '../services/token-storage.service';
 
 @Component({
   selector: 'app-book-list',
@@ -10,11 +11,23 @@ import { BookService } from '../services/book.service';
 export class BookListComponent implements OnInit {
 
   books: Book[];
+  isAdministrator = false;
 
-  constructor(private bookService: BookService) { }
+  constructor(
+    private bookService: BookService,
+    private tokenStorageService: TokenStorageService
+    ) { }
 
   ngOnInit(): void {
     this.getBooks();
+
+    const user = this.tokenStorageService.getUser();
+
+    if (!!user) {
+      if (user.role === "administrator") {
+        this.isAdministrator = true;
+      }
+    }
   }
 
   getBooks() {
@@ -31,6 +44,14 @@ export class BookListComponent implements OnInit {
         let bookFileURL = URL.createObjectURL(bookFile);
         window.open(bookFileURL);
       })
+  }
+
+  onEdit() {
+    
+  }
+
+  onDelete() {
+    
   }
 
 }
