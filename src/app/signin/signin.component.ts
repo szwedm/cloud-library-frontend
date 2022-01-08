@@ -18,7 +18,7 @@ export class SigninComponent implements OnInit {
   });
 
   isLoggedIn = false;
-  submitted = false
+  submitted = false;
   role: string;
   
   constructor(

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Book } from '../models/book';
 import { BookService } from '../services/book.service';
 import { TokenStorageService } from '../services/token-storage.service';
@@ -15,7 +16,8 @@ export class BookListComponent implements OnInit {
 
   constructor(
     private bookService: BookService,
-    private tokenStorageService: TokenStorageService
+    private tokenStorageService: TokenStorageService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -44,6 +46,10 @@ export class BookListComponent implements OnInit {
         let bookFileURL = URL.createObjectURL(bookFile);
         window.open(bookFileURL);
       })
+  }
+
+  onAdd() {
+    this.router.navigateByUrl('/books/add')
   }
 
   onEdit() {

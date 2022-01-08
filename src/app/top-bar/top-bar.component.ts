@@ -34,16 +34,16 @@ export class TopBarComponent implements OnInit {
   }
 
   onBooks() {
-    this.router.navigateByUrl('/books')
+    this.router.navigateByUrl('/books');
   }
 
   onUsers() {
-    this.router.navigateByUrl('/users')
+    this.router.navigateByUrl('/users');
   }
 
   onSignout() {
     this.tokenStorageService.signOut();
-    this.router.navigateByUrl('/signin')
+    this.router.navigateByUrl('/signin');
   }
 
 }

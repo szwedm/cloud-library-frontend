@@ -11,6 +11,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AuthInterceptor } from './helpers/auth.interceptor';
 import { BookListComponent } from './book-list/book-list.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { BookAddComponent } from './book-add/book-add.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     SigninComponent,
     SignupComponent,
     BookListComponent,
-    TopBarComponent
+    TopBarComponent,
+    BookAddComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
       { path: 'signup', component: SignupComponent },
       { path: 'signin', component: SigninComponent },
       { path: 'books', component: BookListComponent },
+      { path: 'books/add', component: BookAddComponent },
     ])
   ],
   providers: [

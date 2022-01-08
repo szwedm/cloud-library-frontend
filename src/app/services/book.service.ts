@@ -27,7 +27,17 @@ export class BookService {
   }
 
   getBookByID(id: string): Observable<Blob> {
-    return this.http.get<Blob>('http://localhost:8080/books/' + id, { headers: httpHeadersPDF, responseType: 'blob' as 'json'});
+    return this.http.get<Blob>('http://localhost:8080/books/' + id, { headers: httpHeadersPDF, responseType: 'blob' as 'json'})
+      .pipe(
+        catchError(handleHttpResponseError)
+      );
+  }
+
+  addBook(formData: FormData) {
+    return this.http.post<any>('http://localhost:8080/books', formData, {reportProgress: true, observe: 'events'})
+      .pipe(
+        catchError(handleHttpResponseError)
+      );
   }
 
 }
