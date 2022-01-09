@@ -17,6 +17,8 @@ const httpHeadersPDF = new HttpHeaders({ 'Content-Type': 'application/json',
 })
 export class BookService {
 
+  private bookToEdit: Book;
+
   constructor(private http: HttpClient) { }
 
   getBooks(): Observable<Book[]> {
@@ -38,6 +40,25 @@ export class BookService {
       .pipe(
         catchError(handleHttpResponseError)
       );
+  }
+
+  editBookByID(book: Book): Observable<Book> {
+    return this.http.put<Book>('http://localhost:8080/books/' + book.id, book, httpOptionsJSON)
+      .pipe(
+        catchError(handleHttpResponseError)
+      );
+  }
+
+  saveBookToEdit(chosenBook: Book) {
+    this.bookToEdit = chosenBook;
+  }
+
+  loadBookToEdit(): Book {
+    return this.bookToEdit;
+  }
+
+  emptyBookToEditBuffer() {
+    this.bookToEdit = null;
   }
 
 }

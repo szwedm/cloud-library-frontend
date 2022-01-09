@@ -24,8 +24,8 @@
 					<td>{{ book.subject }}</td>
 					<td>
 						<button class="btn btn-primary btn-sm m-1"  type="button" (click)="readBook(book.id)">Read</button>
-						<button *ngIf="isAdministrator" class="btn btn-warning btn-sm m-1" type="button" (click)="onEdit()">Edit</button>
-						<button *ngIf="isAdministrator" class="btn btn-danger btn-sm m-1" type="button" (click)="onDelete()">Delete</button>
+						<button *ngIf="isAdministrator" class="btn btn-warning btn-sm m-1" type="button" (click)="onEdit(book)">Edit</button>
+						<button *ngIf="isAdministrator" class="btn btn-danger btn-sm m-1" type="button" (click)="onDelete(book.id)">Delete</button>
 					</td>
 				</tr>
 			</tbody>

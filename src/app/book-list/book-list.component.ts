@@ -52,11 +52,12 @@ export class BookListComponent implements OnInit {
     this.router.navigateByUrl('/books/add')
   }
 
-  onEdit() {
-    
+  onEdit(chosenBookToEdit: Book) {
+    this.bookService.saveBookToEdit(chosenBookToEdit);
+    this.router.navigateByUrl('/books/' + chosenBookToEdit.id);
   }
 
-  onDelete() {
+  onDelete(id: string) {
     
   }
 

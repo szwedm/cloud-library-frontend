@@ -12,6 +12,7 @@ import { AuthInterceptor } from './helpers/auth.interceptor';
 import { BookListComponent } from './book-list/book-list.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { BookAddComponent } from './book-add/book-add.component';
+import { BookEditComponent } from './book-edit/book-edit.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BookAddComponent } from './book-add/book-add.component';
     SignupComponent,
     BookListComponent,
     TopBarComponent,
-    BookAddComponent
+    BookAddComponent,
+    BookEditComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,7 @@ import { BookAddComponent } from './book-add/book-add.component';
       { path: 'signin', component: SigninComponent },
       { path: 'books', component: BookListComponent },
       { path: 'books/add', component: BookAddComponent },
+      { path: 'books/:bookId', component: BookEditComponent },
     ])
   ],
   providers: [
