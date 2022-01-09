@@ -1,0 +1,51 @@
+<app-top-bar></app-top-bar>
+
+<div class="container pt-5">
+	<div class="row align-items-center">
+		<div class="col align-self-center">
+
+			<h3 class="text-center">Edit user</h3>
+
+			<form class="text-center" [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+	
+				<div>
+					<label for="username">Username</label>
+					<br>
+					<input id="username" type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }">
+					<div *ngIf="submitted && f['username'].errors">
+						<div *ngIf="f['username'].errors['required']">Username is required</div>
+						<div *ngIf="f['username'].errors['minlength']">Username must be at least 5 characters</div>
+						<div *ngIf="f['username'].errors['maxlength']">Username must not exceed 20 characters</div>
+					</div>
+				</div>
+			
+				<div>
+					<label for="password">Password</label>
+					<br>
+					<input id="password" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+					<div *ngIf="submitted && f['password'].errors">
+						<div *ngIf="f['password'].errors['required']">Password is required</div>
+						<div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
+						<div *ngIf="f['password'].errors['maxlength']">Password must not exceed 40 characters</div>
+					</div>
+				</div>
+			
+				<div>
+					<input id="administrator" type="radio" name="role" value="administrator" formControlName="role">&nbsp;
+					<label for="administrator">Administrator</label>
+					<br>
+					<input id="reader" type="radio" name="role" value="reader" formControlName="role">&nbsp;
+					<label for="reader">Reader</label>
+				</div>
+
+				<br>
+				<button class="btn btn-success" type="submit">
+					Apply
+				</button>
+
+			</form>
+
+		</div>
+
+	</div>
+</div>
