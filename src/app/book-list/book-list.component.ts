@@ -58,7 +58,10 @@ export class BookListComponent implements OnInit {
   }
 
   onDelete(id: string) {
-    
+    this.bookService.deleteBookByID(id)
+      .subscribe(() => {
+        window.location.reload();
+      });
   }
 
 }
