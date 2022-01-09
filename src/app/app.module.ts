@@ -13,6 +13,7 @@ import { BookListComponent } from './book-list/book-list.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { BookAddComponent } from './book-add/book-add.component';
 import { BookEditComponent } from './book-edit/book-edit.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BookEditComponent } from './book-edit/book-edit.component';
     BookListComponent,
     TopBarComponent,
     BookAddComponent,
-    BookEditComponent
+    BookEditComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,7 @@ import { BookEditComponent } from './book-edit/book-edit.component';
       { path: '', component: SigninComponent },
       { path: 'signup', component: SignupComponent },
       { path: 'signin', component: SigninComponent },
+      { path: 'users', component: UserListComponent },
       { path: 'books', component: BookListComponent },
       { path: 'books/add', component: BookAddComponent },
       { path: 'books/:bookId', component: BookEditComponent },
