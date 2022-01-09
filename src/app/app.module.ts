@@ -15,6 +15,7 @@ import { BookAddComponent } from './book-add/book-add.component';
 import { BookEditComponent } from './book-edit/book-edit.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { AuthGuard } from './helpers/auth.guard';
 
 @NgModule({
   declarations: [
@@ -37,11 +38,11 @@ import { UserEditComponent } from './user-edit/user-edit.component';
       { path: '', component: SigninComponent },
       { path: 'signup', component: SignupComponent },
       { path: 'signin', component: SigninComponent },
-      { path: 'users', component: UserListComponent },
-      { path: 'users/:userId', component: UserEditComponent },
-      { path: 'books', component: BookListComponent },
-      { path: 'books/add', component: BookAddComponent },
-      { path: 'books/:bookId', component: BookEditComponent },
+      { path: 'users', component: UserListComponent, canActivate: [AuthGuard], data: { expectedRoles: ['administrator'] } },
+      { path: 'users/:userId', component: UserEditComponent, canActivate: [AuthGuard], data: { expectedRoles: ['administrator'] } },
+      { path: 'books', component: BookListComponent, canActivate: [AuthGuard], data: { expectedRoles: ['administrator', 'reader'] } },
+      { path: 'books/add', component: BookAddComponent, canActivate: [AuthGuard], data: { expectedRoles: ['administrator'] } },
+      { path: 'books/:bookId', component: BookEditComponent, canActivate: [AuthGuard], data: { expectedRoles: ['administrator'] } },
     ])
   ],
   providers: [
