@@ -31,11 +31,14 @@
 				</div>
 			
 				<div>
-					<input id="administrator" type="radio" name="role" value="administrator" formControlName="role">&nbsp;
-					<label for="administrator">Administrator</label>
-					<br>
-					<input id="reader" type="radio" name="role" value="reader" formControlName="role">&nbsp;
-					<label for="reader">Reader</label>
+					<div *ngIf="isAdministrator">
+						<input id="administrator" type="radio" name="role" value="administrator" formControlName="role">&nbsp;
+						<label for="administrator">Administrator</label>
+					</div>
+					<div>
+						<input id="reader" type="radio" name="role" value="reader" formControlName="role">&nbsp;
+						<label for="reader">Reader</label>
+					</div>
 				</div>
 
 				<br>

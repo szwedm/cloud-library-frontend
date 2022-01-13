@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../models/user';
+import { TokenStorageService } from '../services/token-storage.service';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class UserEditComponent implements OnInit {
 
   user: User;
   submitted = false;
+  isAdministrator = false;
   
   editUserForm = this.formBuilder.group({
     username: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
@@ -22,6 +24,7 @@ export class UserEditComponent implements OnInit {
   
   constructor(
     private userService: UserService,
+    private tokenStorageService: TokenStorageService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
@@ -36,6 +39,10 @@ export class UserEditComponent implements OnInit {
         this.editUserForm.controls['role'].setValue(this.user.role);
       }
     );
+
+    if (this.tokenStorageService.getUser().role === "administrator") {
+      this.isAdministrator = true;
+    }
   }
 
   get f(): { [key: string]: AbstractControl } {

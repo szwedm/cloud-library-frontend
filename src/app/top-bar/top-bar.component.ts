@@ -9,6 +9,7 @@ import { TokenStorageService } from '../services/token-storage.service';
 })
 export class TopBarComponent implements OnInit {
 
+  id: string;
   isLoggedIn = false;
   isReader = false;
   isAdministrator = false;
@@ -23,6 +24,7 @@ export class TopBarComponent implements OnInit {
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
+      this.id = user.id;
 
       if (user.role === "reader") {
         this.isReader = true;
@@ -39,6 +41,10 @@ export class TopBarComponent implements OnInit {
 
   onUsers() {
     this.router.navigateByUrl('/users');
+  }
+
+  onProfile() {
+    this.router.navigateByUrl('/users/' + this.id);
   }
 
   onSignout() {

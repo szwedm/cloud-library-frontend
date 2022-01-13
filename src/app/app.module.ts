@@ -39,7 +39,7 @@ import { AuthGuard } from './helpers/auth.guard';
       { path: 'signup', component: SignupComponent },
       { path: 'signin', component: SigninComponent },
       { path: 'users', component: UserListComponent, canActivate: [AuthGuard], data: { expectedRoles: ['administrator'] } },
-      { path: 'users/:userId', component: UserEditComponent, canActivate: [AuthGuard], data: { expectedRoles: ['administrator'] } },
+      { path: 'users/:userId', component: UserEditComponent, canActivate: [AuthGuard], data: { expectedRoles: ['administrator', 'reader'] } },
       { path: 'books', component: BookListComponent, canActivate: [AuthGuard], data: { expectedRoles: ['administrator', 'reader'] } },
       { path: 'books/add', component: BookAddComponent, canActivate: [AuthGuard], data: { expectedRoles: ['administrator'] } },
       { path: 'books/:bookId', component: BookEditComponent, canActivate: [AuthGuard], data: { expectedRoles: ['administrator'] } },

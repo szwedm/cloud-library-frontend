@@ -5,6 +5,7 @@
 			<div class="navbar-nav">
 				<button *ngIf="isReader" type="button" class="btn btn-primary" (click)="onBooks()">Books</button>
 				<button *ngIf="isAdministrator" type="button" class="btn btn-primary" (click)="onUsers()">Users</button>
+				<button *ngIf="isReader" type="button" class="btn btn-primary" (click)="onProfile()">Profile</button>
 				<button type="button" class="btn btn-primary" (click)="onSignout()">Sign out</button>
 			</div>
 		</div> 
