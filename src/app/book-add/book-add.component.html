@@ -13,9 +13,9 @@
 					<br>
 					<input id="title" type="text" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f['title'].errors }">
 					<div *ngIf="submitted && f['title'].errors">
-						<div *ngIf="f['title'].errors['required']">Title is required</div>
-						<div *ngIf="f['title'].errors['minlength']">Title must be at least 2 characters</div>
-						<div *ngIf="f['title'].errors['maxlength']">Title must not exceed 40 characters</div>
+						<div *ngIf="f['title'].errors['required']" style="color:red;">Title is required</div>
+						<div *ngIf="f['title'].errors['minlength']" style="color:red;">Title must be at least 2 characters</div>
+						<div *ngIf="f['title'].errors['maxlength']" style="color:red;">Title must not exceed 40 characters</div>
 					</div>
 				</div>
 			
@@ -24,9 +24,9 @@
 					<br>
 					<input id="author" type="text" formControlName="author" [ngClass]="{ 'is-invalid': submitted && f['author'].errors }">
 					<div *ngIf="submitted && f['author'].errors">
-						<div *ngIf="f['author'].errors['required']">Author is required</div>
-						<div *ngIf="f['author'].errors['minlength']">Author must be at least 5 characters</div>
-						<div *ngIf="f['author'].errors['maxlength']">Author must not exceed 100 characters</div>
+						<div *ngIf="f['author'].errors['required']" style="color:red;">Author is required</div>
+						<div *ngIf="f['author'].errors['minlength']" style="color:red;">Author must be at least 5 characters</div>
+						<div *ngIf="f['author'].errors['maxlength']" style="color:red;">Author must not exceed 100 characters</div>
 					</div>
 				</div>
 
@@ -35,9 +35,9 @@
 					<br>
 					<input id="subject" type="text" formControlName="subject" [ngClass]="{ 'is-invalid': submitted && f['subject'].errors }">
 					<div *ngIf="submitted && f['subject'].errors">
-						<div *ngIf="f['subject'].errors['required']">Subject is required</div>
-						<div *ngIf="f['subject'].errors['minlength']">Subject must be at least 2 characters</div>
-						<div *ngIf="f['subject'].errors['maxlength']">Subject must not exceed 20 characters</div>
+						<div *ngIf="f['subject'].errors['required']" style="color:red;">Subject is required</div>
+						<div *ngIf="f['subject'].errors['minlength']" style="color:red;">Subject must be at least 2 characters</div>
+						<div *ngIf="f['subject'].errors['maxlength']" style="color:red;">Subject must not exceed 20 characters</div>
 					</div>
 				</div>
 
